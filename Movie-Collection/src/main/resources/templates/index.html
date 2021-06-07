@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+	integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+	crossorigin="anonymous" />
+</head>
+<body class="bg-light">
+	<nav class="navbar navbar-light bg-dark">
+		<a class="navbar-brand  mx-5 text-white">Movie Collection</a>
+		<form class="form-inline" th:action="@{/}">
+			<input class="form-control mr-sm-2" type="search" name="keyword"
+				id="keyword" th:value="${keyword}" required placeholder="Search"
+				aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			<button class="btn btn-outline-success my-2 my-sm-0" type="button"
+				id="btnClear" onclick="clearSearch()" value="Clear">Clear</button>
+		</form>
+	</nav>
+
+
+
+
+	<div class="album py-5 bg-light">
+		<div class="container">
+			<div class="text-center w-100">
+				<h1 class="text-center">MOVİE COLLECTİON</h1>
+				<a class="btn btn-outline-danger btn-lg mb-4"
+					th:href="@{/showNewMovieForm}"> Add Movie </a> <a
+					class="btn btn-outline-danger btn-lg mb-4" th:href="@{/sortByYear}">
+					<i class="fas fa-sort"></i> Sort By Year
+				</a>
+
+
+				<script type="text/javascript">
+					function clearSearch() {
+						window.location = "[[@{/}]]";
+					}
+				</script>
+
+				<div class="row">
+					<div class="col-md-4" th:each="movie : ${listMovie}">
+						<div class="card mb-4 box-shadow">
+							<img class="card-img-top"
+								src="https://occ-0-2705-1001.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABQtnLjMiizz4dsBV-VtM2_KewG0lsL8jgnLoh5hVNeEbLNc7RYp6AoO8Tc_1BrkhUM9mtQ6v89TWdpWJhC3ArqKpmmD6TPg9PGle.png?r=563"
+								alt="Card image cap">
+							<div class="card-body">
+								<p class="card-text font-weight-bold h4"
+									th:text="${movie.movie_name}"></p>
+								<br>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="btn-group">
+										<a
+											th:href="@{/showFormForView/{movie_id}(movie_id=${movie.movie_id})}"><button
+												type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+										<a
+											th:href="@{/showFormForUpdate/{movie_id}(movie_id=${movie.movie_id})}"><button
+												type="button" class="btn btn-sm btn-outline-secondary">Edit</button></a>
+										<a
+											th:href="@{/deleteMovie/{movie_id}(movie_id=${movie.movie_id})}"><button
+												type="button" class="btn btn-sm btn-outline-secondary">Delete</button></a>
+
+									</div>
+									<small class="text-muted" th:text="${movie.movie_year}"></small>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
