@@ -17,7 +17,7 @@
 - ADD MOVIE <br>
 - VIEW MOVIE <br>
 - SEARCH MOVIE <br>
-- SORT BY YEAR MOVIE <br>
+- SORT MOVIES BY YEAR  <br>
 - EDIT MOVIE <br>
 - DELETE MOVIE <br>
   
