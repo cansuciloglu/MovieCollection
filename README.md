@@ -9,7 +9,7 @@
 
 
 # SETUP
-* Create database named movie_collection. Import the movie_collection.sql file. 
+* Create database name movie_collection in mySql. Import the movie_collection.sql file. 
 * Import Maven Project and run with Java Application
 
 # Functionalities
