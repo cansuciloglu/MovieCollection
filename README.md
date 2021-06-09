@@ -22,7 +22,7 @@
 - DELETE MOVIE <br>
   
   
-<strong>Images</strong> <br>
+# Images
 <strong>Home Page</strong> <br><br>
 ![homepage](https://github.com/cansuciloglu/MovieCollection/blob/main/ScreenShots/homepage.png)
 <strong>Add Movie</strong><br><br>
